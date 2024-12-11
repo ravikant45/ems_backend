@@ -1,0 +1,51 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "ems_backend",
+      "image": "463470964776.dkr.ecr.ap-south-1.amazonaws.com/ems_backend",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "name": "ems_backend-3000-tcp",
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "ulimits": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/ems_backend_task",
+          "mode": "non-blocking",
+          "awslogs-create-group": "true",
+          "max-buffer-size": "25m",
+          "awslogs-region": "ap-south-1",
+          "awslogs-stream-prefix": "ecs"
+        },
+        "secretOptions": []
+      },
+      "systemControls": []
+    }
+  ],
+  "family": "ems_backend_task",
+  "executionRoleArn": "arn:aws:iam::463470964776:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "revision": 2,
+  "volumes": [],
+  "placementConstraints": [],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "2048",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "tags": []
+}
